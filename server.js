@@ -1,4 +1,5 @@
 var express = require('express');
+const cors = require('cors');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
@@ -14,6 +15,9 @@ var app = express();
 // use body parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
+
+// enable cors
+app.use(cors())
 
 // fetch products
 app.get('/product', function(req, res) {
@@ -90,6 +94,6 @@ app.put('/wishlist/product/add', function(req, res) {
   });
 });
 
-app.listen(3000, function() {
-  console.log('Swag shop API running on port 3000!');
+app.listen(3004, function() {
+  console.log('Swag shop API running on port 3004!');
 })
